@@ -22,6 +22,7 @@ const start = () => {
   postgresDbHelper.postgresSequelize
     .authenticate()
     .then(() => {
+        console.log("Init Task");
       startTask.start();
     })
     .catch((err) => {
