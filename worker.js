@@ -3,7 +3,7 @@ const {
   getLastDateLogRecordController,
 } = require("./controller/lastDateLogRecord.controller");
 const { CRONTIME_MAIN } = process.env;
-const postgresDbHelper = require("./helpers/postgresDb.helper");
+const postgresDbHelper = require("./helpers/postgresDB.helper");
 const sendEmail = require("./services/sendEmail.service");
 
 const startTask = new CronJob(CRONTIME_MAIN, async () => {
