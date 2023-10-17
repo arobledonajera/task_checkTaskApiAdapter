@@ -5,17 +5,22 @@ const moment = require("moment");
 
 const getLastDateLogRecordController = async () => {
   try {
-    let dateEntrie = "";
+    let dateLogRecord = "";
+    var date = moment.utc().format('YYYY-MM-DD HH:mm:ss');
+    //var local = moment(stillUtc).local().format('YYYY-MM-DD HH:mm:ss');
+
     let today = moment(new Date());
     const lastDateLogRecord = await getLastDateLogRecordService();
-    dateEntrie = moment(
+    dateLogRecord = moment(
       lastDateLogRecord[0].check_task_apiadapter_sel.data[0].DateTime,
       "YYYY-MM-DD HH:mm:ss"
     );
 
-    var subtraction = dateEntrie.diff(today, "minutes");
-    return subtraction;
+    var subtraction = dateLogRecord.diff(date, "minutes");
+    
+    return subtraction * -1;
   } catch (err) {
+    console.log("Error");
     throw err;
   }
 };
