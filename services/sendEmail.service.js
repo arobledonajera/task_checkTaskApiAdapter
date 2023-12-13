@@ -18,8 +18,13 @@ module.exports = async function createEmail(data) {
   try {
     const mailOptions = {
       from: emailFrom,
+<<<<<<< HEAD
       to: [emailTo],
       subject: "Notification - Task Entries Departures Vehicle",
+=======
+      to: emailTo,
+      subject: "Notification - Task Entries Departures Vehicle ",
+>>>>>>> 8e37ca821c72d54a1b7bc5aa1a0defb70e605af8
       text: data,
     };
 
