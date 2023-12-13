@@ -4,7 +4,8 @@ require("dotenv").config();
 const service = process.env.EMAIL_SERVICE;
 const emailFrom = process.env.EMAIL_FROM;
 const passEmail = process.env.EMAIL_PASS;
-const emailTo = process.env.EMAIL_TO;
+const emailTo1 = process.env.EMAIL_TO1;
+const emailTo2 = process.env.EMAIL_TO2;
 
 const transporter = nodemailer.createTransport({
   service: service,
@@ -18,7 +19,7 @@ module.exports = async function createEmail(data) {
   try {
     const mailOptions = {
       from: emailFrom,
-      to: [emailTo],
+      to: [emailTo1, emailTo2],
       subject: "Notification - Task Entries Departures Vehicle ",
       text: data,
     };
